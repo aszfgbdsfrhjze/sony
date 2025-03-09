@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moving Image</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            position: relative;
+            overflow: hidden;
+            background-image: url(1500x1000_85.jpeg);
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        
+        #movingImage {
+            width: 200px;
+            height: 300px;
+            position: absolute;
+            cursor: pointer;
+            transition: all 0.5s ease; /* Плавное перемещение */
+        }
+    </style>
+</head>
+<body>
+    <img src="photo_2025-03-09_19-04-40-Photoroom.png" alt="Moving Image" id="movingImage">
+
+    <script>
+        const image = document.getElementById('movingImage');
+        
+        // Начальная позиция по центру
+        image.style.left = '50%';
+        image.style.top = '50%';
+        image.style.transform = 'translate(-50%, -50%)';
+
+        function getRandomPosition() {
+            // Рассчитываем максимальные координаты с учётом размеров изображения
+            const maxX = window.innerWidth - image.offsetWidth;
+            const maxY = window.innerHeight - image.offsetHeight;
+            
+            // Генерируем случайные координаты
+            const randomX = Math.floor(Math.random() * maxX);
+            const randomY = Math.floor(Math.random() * maxY);
+            
+            return { x: randomX, y: randomY };
+        }
+
+        image.addEventListener('click', () => {
+            const newPos = getRandomPosition();
+            // Применяем новые координаты
+            image.style.left = `${newPos.x}px`;
+            image.style.top = `${newPos.y}px`;
+        });
+    </script>
+</body>
+</html>

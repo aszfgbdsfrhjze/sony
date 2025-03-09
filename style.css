@@ -1,0 +1,21 @@
+/*body{
+    background: url(1500x1000_85.jpeg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    overflow: hidden;
+}*/
+.kotik{
+    position: relative;
+    transition: transform 0.1s ease-out;
+    width: 400px;
+    height: 500px;
+    transform-origin: center;
+}
+.kot-v-korobke{
+    position: absolute;
+    transform-origin: center;
+    top:50%;
+    left: 50%;
+    /* коррекция положения элемента */
+    transform: translate(-50%, -50%);
+}
